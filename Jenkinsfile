@@ -54,10 +54,10 @@ spec:
       }
       post {
         success { 
-          slackSend(channel: 'C06MTJQJA05', color: 'good', message: 'cartservice CI success by ty0314.kim')
+          slackSend(channel: 'C06MTJQJA05', color: 'good', message: "(Job : ${env.JOB_NAME} - Build Number : ${env.BUILD_NUMBER}) CI success - from <@U06NMQU5K36>")
         }
         failure {
-          slackSend(channel: 'C06MTJQJA05', color: 'danger', message: 'cartservice CI fail by ty0314.kim')
+          slackSend(channel: 'C06MTJQJA05', color: 'danger', message: "(Job : ${env.JOB_NAME} - Build Number : ${env.BUILD_NUMBER}) CI fail - from <@U06NMQU5K36>")
         }
       }
     }
