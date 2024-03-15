@@ -54,10 +54,10 @@ spec:
       }
       post {
         success { 
-          slackSend(channel: 'C06MTJQJA05', color: 'good', message: 'backend CI success by ty0314.kim')
+          slackSend(channel: 'C06MTJQJA05', color: 'good', message: 'cartservice CI success by ty0314.kim')
         }
         failure {
-          slackSend(channel: 'C06MTJQJA05', color: 'danger', message: 'backend CI fail by ty0314.kim')
+          slackSend(channel: 'C06MTJQJA05', color: 'danger', message: 'cartservice CI fail by ty0314.kim')
         }
       }
     }
