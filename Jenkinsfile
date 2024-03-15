@@ -1,9 +1,3 @@
-/*
-<< 변수 >> 치환 필요
-
-<< ECR URI >>      => ex) 123456789012.dkr.ecr.us-east-1.amazonaws.com
-ex) 123456789012.dkr.ecr.us-east-1.amazonaws.com/eshop-backend:latest
-*/
 pipeline {
   agent {
     kubernetes {
@@ -24,7 +18,7 @@ spec:
       # Define the environment variable
       - name: CRED
         valueFrom:
-          configMapKeyRef:
+          secretKeyRef:
             name: jenkinscred
             key: ECR_CREDENTIAL_JSON
   restartPolicy: Never
@@ -32,7 +26,7 @@ spec:
     }
   }
   environment {
-    IMAGE_REGISTRY = "<< ECR URI >>"
+    IMAGE_REGISTRY = "339713125195.dkr.ecr.us-east-1.amazonaws.com"
   }
   stages {
 
@@ -60,10 +54,10 @@ spec:
       }
       post {
         success { 
-          slackSend(channel: '<< CHANNEL ID >>', color: 'good', message: 'cartservice CI success')
+          slackSend(channel: 'C06MTJQJA05', color: 'good', message: 'backend CI success by ty0314.kim')
         }
         failure {
-          slackSend(channel: '<< CHANNEL ID >>', color: 'danger', message: 'cartservice CI fail')
+          slackSend(channel: 'C06MTJQJA05', color: 'danger', message: 'backend CI fail by ty0314.kim')
         }
       }
     }
